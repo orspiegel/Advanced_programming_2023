@@ -1,14 +1,15 @@
-import img1 from './contactItem/contactsImg/Ray_ProfPic.jpg'
-import img2 from './contactItem/contactsImg/Robbie_ProfPic.jpg'
-
-import ContactItem from './contactItem/ContactItem';
+import img1 from './contactMessagePreview/contactsImg/Ray_ProfPic.jpg'
+import img2 from './contactMessagePreview/contactsImg/Robbie_ProfPic.jpg'
+import ContactMessagePreview from './contactMessagePreview/ContactMessagePreview';
 import Conversation from './conversation/Conversation'
-import contacts from './contactItem/contacts'
+import contacts from './contactMessagePreview/contacts'
 import AddContact from './addContact/AddContact';
+
+// import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 function App() {
   const contactsList = contacts.map((contact, key)=> {
-    return <ContactItem {...contact} key={key}></ContactItem>
+    return <ContactMessagePreview {...contact} key={key}></ContactMessagePreview>
   });
   
   return (
@@ -36,7 +37,7 @@ function App() {
                         </div>
                     </div>
                 </div>
-                  <Conversation friendProfileImg={img2} />
+                  <Conversation friendProfileImg={img2} friendName={"Robbie"}/>
                 </div>
                 
             </div>

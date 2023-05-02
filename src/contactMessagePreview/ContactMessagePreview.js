@@ -1,4 +1,4 @@
-function ContactItem({profileImg, contactName, lastMsg, timeStamp}) {
+function ContactMessagePreview({profileImg, contactName, lastMsg, timeStamp}) {
     return(
         <>
         <div className="chatList-contact">
@@ -16,4 +16,4 @@ function ContactItem({profileImg, contactName, lastMsg, timeStamp}) {
         </>
     );
 }
-export default ContactItem;
+export default ContactMessagePreview;
