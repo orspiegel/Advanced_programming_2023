@@ -1,17 +1,15 @@
-import img1 from './contactMessagePreview/contactsImg/Ray_ProfPic.jpg'
-import img2 from './contactMessagePreview/contactsImg/Robbie_ProfPic.jpg'
-import ContactMessagePreview from './contactMessagePreview/ContactMessagePreview';
-import Conversation from './conversation/Conversation'
-import contacts from './contactMessagePreview/contacts'
-import AddContact from './addContact/AddContact';
+import img1 from './contactItem/contactsImg/Ray_ProfPic.jpg';
+import img2 from './contactItem/contactsImg/Robbie_ProfPic.jpg';
+import ContactItem from './contactItem/ContactItem';
+import Conversation from './conversation/Conversation';
+import AddContactModal from './addContact/AddContactModal';
+import { useState } from "react";
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import ContactListResults from './contactListResults/ContactListResults';
+import contacts from './contactItem/contacts';
 
-// import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 function App() {
-  const contactsList = contacts.map((contact, key)=> {
-    return <ContactMessagePreview {...contact} key={key}></ContactMessagePreview>
-  });
-  
   return (
     <div className="container-fluid">
         <div id="logOutButton">
@@ -30,19 +28,16 @@ function App() {
                                     <button className="btn btn-primary addContactBtn" data-bs-toggle="modal" data-bs-target="#addContact"><i className="bi bi-person-add"></i></button>
                                 </span>
                         </div>
-                        <div className="chatList-contactList text">
-                        {contactsList}
-                        </div>
+                        <ContactListResults contacts={contacts} />
                             <div className="chatList-footer">
                         </div>
                     </div>
                 </div>
                   <Conversation friendProfileImg={img2} friendName={"Robbie"}/>
                 </div>
-                
             </div>
-            <AddContact />
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+            <AddContactModal />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossOrigin="anonymous"></script>
     </div>
   );
 }
