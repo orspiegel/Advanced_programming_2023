@@ -6,13 +6,12 @@ import AdamConversation from "./../RightScreen/Conversations/AdamConversation";
 import NoConversationScreen from './../RightScreen/NoConversationScreen';
 
 
-function ContactRouter() {   
+function ContactRouter({currentConv}) {   
     return(
     <BrowserRouter>
         <Routes>
             <Route path="/" element={<NoConversationScreen />} />
             <Route path="/Robbie" element={<RobbieConversation />} />
-            <Route path="/Adam" element={<AdamConversation />} />
         </Routes>
     </BrowserRouter>
     );
