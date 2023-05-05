@@ -1,23 +1,14 @@
 import { useRef } from "react";
-import { useState } from "react";
-import ReactDOM from "react-dom/client";
-import contacts from '../contactItem/contacts'
-import img2 from './chat-icon.png'
+import img2 from './chat-icon.jpg'
 
-function AddContactModal() {
+function AddContactModal( {doAdd} ) {
     const addBox = useRef(null);
     const inputRef = useRef(null);
-
-    const [contactsList, setContactsList] = useState(contacts);
     
-    const doAdd = function() {
+    const append = function() {
       console.log(inputRef.current.value);
-      var usr =  {"profileImg" : img2, "contactName" : inputRef.current.value, "lastMsg" : "Sounds good! See ya soon!", "timeStamp" : "30/04/2023 4:47PM"}
-      console.log(contacts);
-      console.log(contactsList);
-      contactsList.push(usr);
-      console.log(contactsList);
-      setContactsList(contactsList);
+      var usr =  {"profileImg" : img2, "contactName" : inputRef.current.value, "lastMsg" : "Hello! I'm using Watsapp.", "timeStamp" : "30/04/2023 4:47PM"}
+      doAdd(usr);
     };
 
     return (
@@ -32,7 +23,7 @@ function AddContactModal() {
             <input ref={inputRef} className="rounded-pill" type="text" placeholder="Contact's username"></input>
         </div>
         <div className="modal-footer">
-          <button ref={addBox} onClick={doAdd}
+          <button ref={addBox} onClick={append}
                   type="button" className="btn btn-primary" data-bs-dismiss="modal">
                   Add
           </button>

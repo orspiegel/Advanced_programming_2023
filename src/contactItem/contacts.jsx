@@ -2,7 +2,6 @@ import img2 from './contactsImg/Robbie_ProfPic.jpg'
 import img3 from './contactsImg/Adam_ProfPic.jpg'
 import img4 from './contactsImg/Chris_ProfPic.jpg'
 import img5 from './contactsImg/Darin_ProfPic.jpg'
-import React, {useState, useEffect} from 'react'
 
 
 const contacts = [

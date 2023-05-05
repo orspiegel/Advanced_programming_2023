@@ -1,4 +1,4 @@
-function Conversation({friendProfileImg, friendName}) {
+function RobbieConversation({friendProfileImg, friendName}) {
     return(
         <>
         <div className="chatInterface col-md-8">
@@ -10,6 +10,9 @@ function Conversation({friendProfileImg, friendName}) {
                     <h5 className="contactName text">
                         {friendName}
                     </h5>
+                    <div id="logOutButton" className="log-out">
+                        <a className="btn btn-danger addMore"  title="Log Out" href="login_screen.html"><i className="bi bi-box-arrow-right"></i></a>
+                    </div>
                 </div>
                 <div className="chatWindow-conv">
                     <ul className="no-bullet text">
@@ -31,4 +34,4 @@ function Conversation({friendProfileImg, friendName}) {
         </>
     );
 }
-export default Conversation;
+export default RobbieConversation;

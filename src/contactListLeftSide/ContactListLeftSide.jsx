@@ -1,6 +1,6 @@
 import ContactItem from "../contactItem/ContactItem";
 
-function ContactListResults({contacts}) {
+function ContactListLeftSide({contacts}) {
     const contactsList = contacts.map((contact, key)=> {
         return <ContactItem {...contact} key={key}></ContactItem>
     });
@@ -12,4 +12,4 @@ function ContactListResults({contacts}) {
     )
 
 }
-export default ContactListResults;
+export default ContactListLeftSide;
