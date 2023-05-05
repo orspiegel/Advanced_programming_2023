@@ -15,7 +15,9 @@ function AddContactModal() {
       var usr =  {"profileImg" : img2, "contactName" : inputRef.current.value, "lastMsg" : "Sounds good! See ya soon!", "timeStamp" : "30/04/2023 4:47PM"}
       console.log(contacts);
       console.log(contactsList);
-      // setContactsList(contactsList.push(usr));
+      contactsList.push(usr);
+      console.log(contactsList);
+      setContactsList(contactsList);
     };
 
     return (
