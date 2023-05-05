@@ -18,6 +18,14 @@ function App() {
         forceUpdate();
     }
 
+    const [currentConv, setCurrentConv] = useState('');
+    const handleConvSwitch = (profileImg, contactName, lastMsg, timeStamp) =>{
+        setCurrentConv(profileImg, contactName, lastMsg, timeStamp);
+        forceUpdate();
+        console.log("Current contact:", currentConv.contactName);
+        //console.log()
+    }
+
   return (
     <div className="container-fluid">
         <div className="container">
@@ -33,11 +41,11 @@ function App() {
                                     <button className="btn btn-primary addContactBtn" data-bs-toggle="modal" data-bs-target="#addContact"><i className="bi bi-person-add"></i></button>
                                 </span>
                         </div>
-                        <ContactListLeftSide contacts={contactsList} />
+                        <ContactListLeftSide contacts={contactsList} onSwitch={handleConvSwitch} />
                         <div className="chatList-footer"></div>
                     </div>
                 </div>
-                <ContactRouter />
+                <ContactRouter user={currentConv} />
             </div>
         </div>
         <AddContactModal doAdd={addContact} />
