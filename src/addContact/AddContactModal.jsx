@@ -2,20 +2,22 @@ import { useRef } from "react";
 import { useState } from "react";
 import ReactDOM from "react-dom/client";
 import contacts from '../contactItem/contacts'
-
+import img2 from './chat-icon.png'
 
 function AddContactModal() {
-  const [contactsList, setContactsList] = useState(contacts);
-
-  
     const addBox = useRef(null);
     const inputRef = useRef(null);
 
-    const doAdd = function(usr) {
+    const [contactsList, setContactsList] = useState(contacts);
+    
+    const doAdd = function() {
       console.log(inputRef.current.value);
-      setContactsList(contacts.push(usr))
+      var usr =  {"profileImg" : img2, "contactName" : inputRef.current.value, "lastMsg" : "Sounds good! See ya soon!", "timeStamp" : "30/04/2023 4:47PM"}
+      console.log(contacts);
+      console.log(contactsList);
+      // setContactsList(contactsList.push(usr));
     };
-  
+
     return (
         <div className="modal fade" id="addContact" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div className="modal-dialog">
@@ -38,4 +40,4 @@ function AddContactModal() {
   </div>
   )
 }
-export default AddContactModal;
+export {AddContactModal};

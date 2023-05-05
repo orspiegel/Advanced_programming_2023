@@ -5,7 +5,7 @@ import img5 from './contactsImg/Darin_ProfPic.jpg'
 import React, {useState, useEffect} from 'react'
 
 
-var contacts = [
+const contacts = [
     {profileImg : img2, contactName : "Robbie", lastMsg : "Sounds good! See ya soon!", timeStamp : "30/04/2023 4:47PM"},
     {profileImg : img3, contactName : "Adam", lastMsg : "I hope you didn't forget about your previous commitments.", timeStamp : "30/04/2023 10:30AM"},
     {profileImg : img4, contactName : "Chris", lastMsg : "So I take it you overslept again? Typical.", timeStamp : "29/04/2023 6:48AM"},

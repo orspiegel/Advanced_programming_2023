@@ -2,12 +2,11 @@ import img1 from './contactItem/contactsImg/Ray_ProfPic.jpg';
 import img2 from './contactItem/contactsImg/Robbie_ProfPic.jpg';
 import ContactItem from './contactItem/ContactItem';
 import Conversation from './conversation/Conversation';
-import AddContactModal from './addContact/AddContactModal';
+import {AddContactModal, changeAndGetCont} from './addContact/AddContactModal';
 import { useState } from "react";
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import ContactListResults from './contactListResults/ContactListResults';
 import contacts from './contactItem/contacts';
-
 
 function App() {
   return (
