@@ -4,15 +4,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import RobbieConversation from "./../RightScreen/Conversations/RobbieConversation";
 import AdamConversation from "./../RightScreen/Conversations/AdamConversation";
 
-function ContactItem({profileImg, contactName, lastMsg, timeStamp, onAction}) {   
+function ContactItem({profileImg, contactName, lastMsg, timeStamp, conv, onAction}) {   
     const [, updateState] = React.useState();
     const forceUpdate = React.useCallback(() => updateState({}), []);
 
     const handleClick = () => {
-        const data = {profileImg,contactName,lastMsg, timeStamp};
+        const data = {profileImg,contactName,lastMsg, timeStamp, conv};
         onAction(data);
-        // console.log(data);
-        forceUpdate();
+        // console.log("name: ",data.contactName);
+        // console.log("img",data.profileImg);
+        // forceUpdate();
     }
 
     return(

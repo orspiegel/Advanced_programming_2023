@@ -1,4 +1,4 @@
-function ChatContent() {
+function ChatContent(conv) {
     return(
         <>
         <div className="chatWindow-conv">

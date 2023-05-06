@@ -1,11 +1,11 @@
 import img1 from './contactItem/contactsImg/Ray_ProfPic.jpg';
 import img2 from './contactItem/contactsImg/Robbie_ProfPic.jpg';
 import {AddContactModal, changeAndGetCont} from './addContact/AddContactModal';
-import React, { useState} from "react";
+import React, { useState, useEffect} from "react";
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import ContactListLeftSide from './contactListLeftSide/ContactListLeftSide';
 import contacts from './contactItem/contacts';
-import ContactRouter from './contactListLeftSide/ContactRouter';
+import RightScreen from './RightScreen/RightScreen';
 
 
 function App() {
@@ -17,15 +17,15 @@ function App() {
         setContactsList(contactsList);
         forceUpdate();
     }
-
     const [currentConv, setCurrentConv] = useState('');
-    const handleConvSwitch = (profileImg, contactName, lastMsg, timeStamp) =>{
-        setCurrentConv(profileImg, contactName, lastMsg, timeStamp);
-        forceUpdate();
-        console.log("Current contact:", currentConv.contactName);
-        //console.log()
+    const handleConvSwitch = (profileImg, contactName, lastMsg, timeStamp, conv) =>{
+        setCurrentConv(profileImg, contactName, lastMsg, timeStamp, conv);
+        // forceUpdate();  
     }
-
+    useEffect(() => {
+        console.log("Current contact:", currentConv);
+    })
+    
   return (
     <div className="container-fluid">
         <div className="container">
@@ -45,7 +45,7 @@ function App() {
                         <div className="chatList-footer"></div>
                     </div>
                 </div>
-                <ContactRouter user={currentConv} />
+                <RightScreen friendProfileImg={currentConv.profileImg} friendName={currentConv.friendName} conv={currentConv.conv}/>
             </div>
         </div>
         <AddContactModal doAdd={addContact} />
