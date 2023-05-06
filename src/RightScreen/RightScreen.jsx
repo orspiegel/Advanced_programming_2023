@@ -1,8 +1,6 @@
 import ChatContent from "./ChatContent";
 
 function RightScreen({friendProfileImg, friendName, conv}) {
-    // console.log("friendname",friendName);
-    // console.log("image",friendProfileImg);
     return(
         <>
         <div className="chatInterface col-md-8">

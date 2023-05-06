@@ -1,9 +1,6 @@
 import React,{ useRef } from "react";
 import { Link, useNavigate, useState} from "react-router-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import RobbieConversation from "./../RightScreen/Conversations/RobbieConversation";
-import AdamConversation from "./../RightScreen/Conversations/AdamConversation";
-
 function ContactItem({profileImg, contactName, lastMsg, timeStamp, conv, onAction}) {   
     const [, updateState] = React.useState();
 
