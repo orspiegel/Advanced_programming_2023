@@ -1,18 +1,17 @@
 function ChatContent(conv) {
-    
+    const chatMap = conv.conv && conv.conv.map((message, index) => (
+        <li key={index} className={index % 2 === 0 ? "speech-bubble-left" : "speech-bubble-right"}>
+          {message}
+        </li>
+      ));
     return(
         <>
         <div className="chatWindow-conv">
             <ul className="no-bullet text">
-                <li className="speech-bubble-left">Hi</li>
-                <li className="speech-bubble-right">FOO.</li>
-                <li className="speech-bubble-left">Test</li>
-                <li className="speech-bubble-right">bye</li>
-                <li className="speech-bubble-left">halo</li>
-                <li className="speech-bubble-left">TESTTTSSS</li>
-                <li className="speech-bubble-right">BYE</li>
+                {chatMap}
             </ul>
         </div>
+
         </>
     );
 }

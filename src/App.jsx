@@ -20,10 +20,9 @@ function App() {
     const [currentConv, setCurrentConv] = useState('');
     const handleConvSwitch = (profileImg, contactName, lastMsg, timeStamp, conv) =>{
         setCurrentConv(profileImg, contactName, lastMsg, timeStamp, conv);
-        // forceUpdate();  
     }
     useEffect(() => {
-        console.log("Current contact:", currentConv);
+        // console.log("Current contact:", currentConv);
     })
     
   return (
@@ -45,7 +44,7 @@ function App() {
                         <div className="chatList-footer"></div>
                     </div>
                 </div>
-                <RightScreen friendProfileImg={currentConv.profileImg} friendName={currentConv.friendName} conv={currentConv.conv}/>
+                <RightScreen friendProfileImg={currentConv.profileImg} friendName={currentConv.contactName} conv={currentConv.conv}/>
             </div>
         </div>
         <AddContactModal doAdd={addContact} />

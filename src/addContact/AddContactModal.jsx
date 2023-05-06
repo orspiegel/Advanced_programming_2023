@@ -6,7 +6,7 @@ function AddContactModal( {doAdd} ) {
     const inputRef = useRef(null);
     
     const append = function() {
-      console.log(inputRef.current.value);
+      // console.log(inputRef.current.value);
       var usr =  {"profileImg" : img2, "contactName" : inputRef.current.value, "lastMsg" : "Hello! I'm using Watsapp.", "timeStamp" : "30/04/2023 4:47PM"}
       doAdd(usr);
     };
