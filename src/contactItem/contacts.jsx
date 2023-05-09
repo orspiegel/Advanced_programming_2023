@@ -2,13 +2,16 @@ import img2 from './contactsImg/Robbie_ProfPic.jpg'
 import img3 from './contactsImg/Adam_ProfPic.jpg'
 import img4 from './contactsImg/Chris_ProfPic.jpg'
 import img5 from './contactsImg/Darin_ProfPic.jpg'
+import SingleMessage from '../RightScreen/SingleMessage'
+
+
 const contacts = [
     {
         profileImg : img2, 
         contactName : "Robbie", 
-        lastMsg : "Sounds good! See ya soon!", 
-        timeStamp : "30/04/2023 4:47PM",
-        conv: ["Hi", "FOO.", "Test", "bye", "halo", "TESTTTSSS", "BYE"]
+        conv: [],
+        lastMsg : "e",
+        timeStamp : "30/04/2023 4:47PM"
     },
     {   
         profileImg : img3, 

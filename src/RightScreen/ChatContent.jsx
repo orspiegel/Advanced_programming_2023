@@ -1,8 +1,8 @@
 function ChatContent(conv) {
     const chatMap = conv.conv && conv.conv.map((message, index) => (
-        <li key={index} className={index % 2 === 0 ? "speech-bubble-left" : "speech-bubble-right"}>
+        <div key={index}>
           {message}
-        </li>
+        </div>
       ));
     return(
         <>

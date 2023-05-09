@@ -9,6 +9,8 @@ function ContactItem({profileImg, contactName, lastMsg, timeStamp, conv, onActio
         onAction(data);
     }
 
+    
+
     return(
         <>
         <div className="chatList-contact" onClick={handleClick}>

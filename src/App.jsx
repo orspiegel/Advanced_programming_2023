@@ -6,6 +6,8 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import ContactListLeftSide from './contactListLeftSide/ContactListLeftSide';
 import contacts from './contactItem/contacts';
 import RightScreen from './RightScreen/RightScreen';
+import SingleMessage from './RightScreen/SingleMessage';
+import getTime from './RightScreen/SingleMessage';
 
 
 function App() {
@@ -18,9 +20,17 @@ function App() {
         forceUpdate();
     }
     const [currentConv, setCurrentConv] = useState('');
-    const handleConvSwitch = (profileImg, contactName, lastMsg, timeStamp, conv) =>{
-        setCurrentConv(profileImg, contactName, lastMsg, timeStamp, conv);
+    const handleConvSwitch = (profileImg, contactName, conv, lastMsg, timeStamp) =>{
+        setCurrentConv(profileImg, contactName, conv, lastMsg, timeStamp);
     }
+
+    const [currentContact, setCurrentContant] = useState();
+    const appendMessage = function(newMessage, msgContent, msgTime) {
+        currentConv.conv.push(newMessage);
+    }
+    
+
+
     useEffect(() => {
         // console.log("Current contact:", currentConv);
     })
@@ -44,7 +54,7 @@ function App() {
                         <div className="chatList-footer"></div>
                     </div>
                 </div>
-                <RightScreen friendProfileImg={currentConv.profileImg} friendName={currentConv.contactName} conv={currentConv.conv}/>
+                <RightScreen friendProfileImg={currentConv.profileImg} friendName={currentConv.contactName} conv={currentConv.conv} AAA={appendMessage}/>
             </div>
         </div>
         <AddContactModal doAdd={addContact} />
