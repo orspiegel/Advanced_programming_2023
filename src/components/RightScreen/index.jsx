@@ -1,4 +1,6 @@
-import ChatContent from "./ChatContent";
+import React from "react";
+import ChatContent from "../ChatContent";
+import "./RightScreen.css";
 
 function RightScreen({friendProfileImg, friendName, conv}) {
     return(
