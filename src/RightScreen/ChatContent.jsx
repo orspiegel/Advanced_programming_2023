@@ -1,9 +1,10 @@
 function ChatContent(conv) {
     const chatMap = conv.conv && conv.conv.map((message, index) => (
-        <div key={index}>
+        <li key={index}>
           {message}
-        </div>
+        </li>
       ));
+
     return(
         <>
         <div className="chatWindow-conv">

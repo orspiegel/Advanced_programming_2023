@@ -6,8 +6,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import ContactListLeftSide from './contactListLeftSide/ContactListLeftSide';
 import contacts from './contactItem/contacts';
 import RightScreen from './RightScreen/RightScreen';
-import SingleMessage from './RightScreen/SingleMessage';
-import getTime from './RightScreen/SingleMessage';
+import FormatMessage from './RightScreen/FormatMessage';
 
 
 function App() {
@@ -24,15 +23,37 @@ function App() {
         setCurrentConv(profileImg, contactName, conv, lastMsg, timeStamp);
     }
 
-    const [currentContact, setCurrentContant] = useState();
-    const appendMessage = function(newMessage, msgContent, msgTime) {
-        currentConv.conv.push(newMessage);
+    const [, setCurrentChat] = useState(currentConv);
+
+    const handleSentMessage = function(friendName, newMessage) {
+
+        const currentDate = new Date();
+        let day = (("0" + currentDate.getDate().toString()).slice(-2));
+        let month = (("0" + (currentDate.getMonth() + 1).toString()).slice(-2));
+        let hours = (("0" + currentDate.getHours().toString()).slice(-2));
+        let minutes = (("0" + currentDate.getMinutes().toString()).slice(-2));
+
+        const time =  (day +  "/" + month + "/" + currentDate.getFullYear() + " " + hours + ":" + minutes);
+
+        const contact = contactsList.find(person => person.contactName === friendName);
+        contact.lastMsg = newMessage;
+        if (!(contact.timeStamp.slice(1, 10) == time.slice(1, 10))) {
+            const date = <span className="chatDateTracker rounded-pill">{time.slice(1, 10)}</span>
+            currentConv.conv.push(date);
+        }
+        contact.timeStamp = time;
+        setContactsList(contactsList);
+        forceUpdate();
+
+        const msgFormatted = FormatMessage(newMessage, 1, time);
+        currentConv.conv.push(msgFormatted);
+        setCurrentChat(currentConv);
     }
     
 
 
     useEffect(() => {
-        // console.log("Current contact:", currentConv);
+
     })
     
   return (
@@ -54,7 +75,7 @@ function App() {
                         <div className="chatList-footer"></div>
                     </div>
                 </div>
-                <RightScreen friendProfileImg={currentConv.profileImg} friendName={currentConv.contactName} conv={currentConv.conv} AAA={appendMessage}/>
+                <RightScreen friendProfileImg={currentConv.profileImg} friendName={currentConv.contactName} conv={currentConv.conv} handleSentMessage={handleSentMessage}/>
             </div>
         </div>
         <AddContactModal doAdd={addContact} />

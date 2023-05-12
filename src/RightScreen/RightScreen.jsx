@@ -4,25 +4,26 @@ import { Form } from "react-router-dom";
 import ContactItem from "../contactItem/ContactItem";
 
 import ChatContent from "./ChatContent";
-import SingleMessage from "./SingleMessage";
+import SingleMessage from "./FormatMessage";
 
-function RightScreen({friendProfileImg, friendName, conv, AAA}) {
+function RightScreen({friendProfileImg, friendName, conv, handleSentMessage}) {
 
-    const addBox = useRef(null);
+    const sendBox = useRef(null);
     const inputRef = useRef(null);
+
+    const sendButton = document.getElementById("sendbtn");
 
     const[msg, setMsg] = React.useState("");
     const changeMessage = (e) => setMsg(e.target.value);
 
 
     function sendMessage() {
-        if (inputRef.current.value){
-        const currentDate = new Date();
-        const time = currentDate.getHours() + ":" + currentDate.getMinutes();
-        const newMessage = SingleMessage(inputRef.current.value, 1, time);
-        AAA(newMessage, inputRef.current.value, time);
-        setMsg('');
+
+        if (/\S/.test(inputRef.current.value)) {
+            handleSentMessage(friendName, inputRef.current.value);
+        
         }
+        setMsg('');
     }
 
     return(
@@ -43,7 +44,7 @@ function RightScreen({friendProfileImg, friendName, conv, AAA}) {
                 <ChatContent conv={conv}/>
                 <div className="chatWindow-footer">
                     <input ref={inputRef} className="rounded-pill" type="text" id="msg" name="msg" value={ msg } placeholder="Message" onChange={changeMessage}></input>
-                    <button ref={addBox} className="btn btn-primary" id="sendbtn" onClick={sendMessage}>Send</button>
+                    <button ref={sendBox} className="btn btn-primary" id="sendbtn" onClick={sendMessage}>Send</button>
                 </div>
             </div>
         </div>

@@ -6,9 +6,14 @@ function AddContactModal( {doAdd} ) {
     const inputRef = useRef(null);
     
     const append = function() {
-      // console.log(inputRef.current.value);
-      var usr =  {"profileImg" : img2, "contactName" : inputRef.current.value, "conv" : [], "lastMsg" : "", "timeStamp" : ""}
-      doAdd(usr);
+      if (/\S/.test(inputRef.current.value)) {
+       // console.log(inputRef.current.value);
+       var usr =  {"profileImg" : img2, "contactName" : inputRef.current.value, "conv" : [], "lastMsg" : "Start chatting now!", "timeStamp" : ""}
+       doAdd(usr);
+    } else {
+      /*Add popup*/
+    }
+    inputRef.current.value = '';
     };
 
     return (
