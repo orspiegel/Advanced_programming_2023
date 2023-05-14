@@ -63,14 +63,14 @@ const SignUp = () => {
   return (
     <>
       <ToastContainer />
-      <div className="d-flex align-items-center justify-content-center vh-100">
-        <div className="card w-50">
-          <div className="card-body">
-            <form onSubmit={handleSubmit}>
-              <h2 className="text-center mb-4">Create New Account</h2>
-              <div className="form-group">
+      <div className="container">
+        <div className="mx-auto col-10 col-md-8 col-lg-6">
+          <div className="inputBlock p-4 rounded  shadow">
+            <form className="inputForm" onSubmit={handleSubmit}>
+              <h3 className="text-center mb-4 text-primary"> Create New Account </h3>
+              <div className="form-group mb-3">
                 <input
-                  className="form-control"
+                  className="form-control rounded-pill"
                   type="text"
                   value={userName}
                   onChange={(e) => setUserName(e.target.value)}
@@ -78,9 +78,9 @@ const SignUp = () => {
                   required
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group mb-3">
                 <input
-                  className="form-control"
+                  className="form-control rounded-pill"
                   type="password"
                   value={userPassword}
                   onChange={(e) => setUserPassword(e.target.value)}
@@ -88,9 +88,9 @@ const SignUp = () => {
                   required
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group mb-3">
                 <input
-                  className="form-control"
+                  className="form-control rounded-pill"
                   type="password"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
@@ -98,18 +98,18 @@ const SignUp = () => {
                   required
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group mb-3">
                 <input
-                  className="form-control"
+                  className="form-control rounded-pill"
                   type="text"
                   value={displayName}
                   onChange={(e) => setDisplayName(e.target.value)}
-                  placeholder="Display Name"
+                  placeholder="Nickname"
                   required
                 />
               </div>
-              <div className="form-group">
-                <label>Click here to upload your profile picture:</label>
+              <div className="form-group mb-3">
+                <label className="text" htmlFor="profilePic">Click here to upload your profile picture:</label>
                 <input
                   className="form-control-file"
                   type="file"
@@ -117,10 +117,9 @@ const SignUp = () => {
                   onChange={(e) => setProfilePic(e.target.files[0])}
                 />
               </div>
-              {profilePic && <img className="img-fluid mt-3" src={URL.createObjectURL(profilePic)} alt="Profile Preview" />}
-             
+              {profilePic && <img className="img-fluid mt-3" src={URL.createObjectURL(profilePic)} alt="Profile Preview" style={{width: '256px', height: '256px'}}/>}
               <button className="btn btn-primary w-100 mt-3" type="submit">Register</button>
-              <div className="mt-3 text-center">
+              <div className="mt-3 text-center text-primary">
                 Already have an account? <Link to="/">Log in</Link>
               </div>
             </form>
