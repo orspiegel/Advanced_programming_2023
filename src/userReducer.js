@@ -1,8 +1,9 @@
+const { v4: uuidv4 } = require('uuid');
 export const userReducer = (state, action) => {
   switch (action.type) {
     case "SIGN_UP":
       const newUser = {
-        id: new Date().getTime(),
+        id:  uuidv4(),
         userName: action.payload.userName,
         userPassword: action.payload.userPassword,
         displayName: action.payload.displayName,
