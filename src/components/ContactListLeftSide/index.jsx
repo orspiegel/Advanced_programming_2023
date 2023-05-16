@@ -1,4 +1,4 @@
-import ContactItem from "../contactItem/ContactItem";
+import ContactItem from "../ContactItem";
 
 function ContactListLeftSide({contacts, onSwitch}) {
     const contactsList = contacts.map((contact, key)=> {

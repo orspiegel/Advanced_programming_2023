@@ -1,4 +1,3 @@
-import { getElementError } from "@testing-library/react";
 import React,{ useRef } from "react";
 import { Link, useNavigate, useState} from "react-router-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -19,7 +18,7 @@ function ContactItem({profileImg, contactName, lastMsg, timeStamp, conv, onActio
             <span className="contactName">
                 {contactName}
             </span>
-            <span id="lastMsg" className="lastMsg text-mute">{lastMsg}</span>
+            <span className="lastMsg text-mute">{lastMsg}</span>
             <span className="timeStamp text-mute">
                 {timeStamp}
             </span>

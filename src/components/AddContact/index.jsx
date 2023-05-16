@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import img2 from './chat-icon.jpg'
+import defaultProfilePic from '../../contactsImg/chat-icon.jpg'
 
 function AddContactModal( {doAdd} ) {
     const addBox = useRef(null);
@@ -8,10 +8,8 @@ function AddContactModal( {doAdd} ) {
     const append = function() {
       if (/\S/.test(inputRef.current.value)) {
        // console.log(inputRef.current.value);
-       var usr =  {"profileImg" : img2, "contactName" : inputRef.current.value, "conv" : [], "lastMsg" : "Start chatting now!", "timeStamp" : ""}
+       var usr =  {"profileImg" : defaultProfilePic, "contactName" : inputRef.current.value, "conv" : [], "lastMsg" : "Start chatting now!", "timeStamp" : ""}
        doAdd(usr);
-    } else {
-      /*Add popup*/
     }
     inputRef.current.value = '';
     };
@@ -38,4 +36,4 @@ function AddContactModal( {doAdd} ) {
   </div>
   )
 }
-export {AddContactModal};
+export default AddContactModal;

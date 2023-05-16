@@ -263,6 +263,7 @@ ul.no-bullet {
     list-style-type: none;
     padding-left: 20px;
     padding-right: 20px;
+    margin-top: 10px;
    }
 
 .speech-bubble-left:after {
@@ -298,8 +299,6 @@ ul.no-bullet {
     --bs-border-color: transperant;
 }
 
-/* Prevents Image borders from appearing if src image is unavailable*/
-
 img:not([src]) {
     visibility: hidden;
  }
@@ -312,3 +311,4 @@ img:not([src]) {
     margin-left: 45%;
 
  }
+
