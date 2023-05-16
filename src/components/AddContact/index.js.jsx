@@ -1,12 +1,17 @@
 import { useRef } from "react";
+import defaultProfilePic from '../../contactsImg/chat-icon.jpg'
+
 function AddContactModal( {doAdd} ) {
     const addBox = useRef(null);
     const inputRef = useRef(null);
     
     const append = function() {
-      const img2 = "/contactsImg/chat-icon.jpg";
-      var usr =  {"profileImg" : img2, "contactName" : inputRef.current.value, "lastMsg" : "Hello! I'm using Watsapp.", "timeStamp" : "30/04/2023 4:47PM"}
-      doAdd(usr);
+      if (/\S/.test(inputRef.current.value)) {
+        // console.log(inputRef.current.value);
+        var usr =  {"profileImg" : defaultProfilePic, "contactName" : inputRef.current.value, "conv" : [], "lastMsg" : "Start chatting now!", "timeStamp" : ""}
+        doAdd(usr);
+     }
+     inputRef.current.value = '';
     };
 
     return (

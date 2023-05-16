@@ -1,8 +1,26 @@
-import React from "react";
+import React,{ useRef } from "react";
 import ChatContent from "../ChatContent";
 import "./RightScreen.css";
 
-function RightScreen({friendProfileImg, friendName, conv}) {
+function RightScreen({friendProfileImg, friendName, conv, handleSentMessage}) {
+
+    const sendBox = useRef(null);
+    const inputRef = useRef(null);
+
+    const[msg, setMsg] = React.useState("");
+    const changeMessage = (e) => {
+        setMsg(e.target.value);
+    }
+
+
+    function sendMessage() {
+
+        if (/\S/.test(inputRef.current.value)) {
+            handleSentMessage(friendName, inputRef.current.value);
+        
+        }
+        setMsg('');
+    }
     return(
         <>
         <div className="chatInterface col-md-8">
@@ -14,15 +32,12 @@ function RightScreen({friendProfileImg, friendName, conv}) {
                     <h5 className="contactName text">
                         {friendName}
                     </h5>
-                    <div id="logOutButton" className="log-out">
-                        <a className="btn btn-danger addMore"  title="Log Out" href="login_screen.html"><i className="bi bi-box-arrow-right"></i></a>
-                    </div>
                 </div>
                 <ChatContent conv={conv}/>
-                <div className="chatWindow-footer">
-                    <input className="rounded-pill" type="text" id="msg" name="msg" placeholder="Message"></input>
-                    <button className="btn btn-primary" id="sendbtn">Send</button>
-                </div>
+                {friendProfileImg && <div className="chatWindow-footer">
+                    <input ref={inputRef} className="rounded-pill" type="text" id="msg" name="msg" value={ msg } placeholder="Message" onChange={changeMessage}></input>
+                    <button ref={sendBox} className="btn btn-primary" id="sendbtn" onClick={sendMessage}>Send</button>
+                </div>}
             </div>
         </div>
         </>

@@ -8,6 +8,7 @@ export const userReducer = (state, action) => {
         userPassword: action.payload.userPassword,
         displayName: action.payload.displayName,
         profilePic: action.payload.profilePic,
+        contactList: [],
       };
       
       const updatedUsers = [...state.users, newUser];
@@ -28,6 +29,12 @@ export const userReducer = (state, action) => {
         alert("Invalid username or password.");
         return { ...state, isAuthenticated: false }; 
       }
+      case "LOG_OUT":
+        return { ...state, currentUser: null, isAuthenticated: false }; 
+  
+      case "UPDATE_CONTACTS":
+        state.currentUser.contactList = action.payload.contactsList;
+        return {...state};
 
     default:
       return state;

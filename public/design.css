@@ -263,6 +263,7 @@ ul.no-bullet {
     list-style-type: none;
     padding-left: 20px;
     padding-right: 20px;
+    margin-top: 10px;
    }
 
 .speech-bubble-left:after {
@@ -298,3 +299,15 @@ ul.no-bullet {
     --bs-border-color: transperant;
 }
 
+img:not([src]) {
+    visibility: hidden;
+ }
+
+ .chatDateTracker {
+    padding: 5px 10px;
+    background-color: rgba(0, 132, 255, 0.3);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 45%;
+
+ }
