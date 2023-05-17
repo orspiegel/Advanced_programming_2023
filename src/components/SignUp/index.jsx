@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../UserContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import defaultProfilePic from "../../contactsImg/chat-icon.jpg";
 
 const SignUp = () => {
   const { dispatch } = useContext(UserContext);
@@ -24,8 +25,8 @@ const SignUp = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (userName === "") {
-      toast.error("Please enter a username.");
+    if ((/\s/.test(userName))) {
+      toast.error("Please enter a valid username - no space, tab or new-line characters allowed.");
       return;
     }
 
@@ -41,8 +42,18 @@ const SignUp = () => {
       return;
     }
 
-    if (displayName === "") {
-      toast.error("Please enter a display name.");
+    if (!(/\S/.test(displayName))) {
+      toast.error("Please enter a valid display name - must contain at least one letter or number.");
+      return;
+    }
+
+    const userExists = state.users.find(
+      (user) =>
+        user.userName === userName
+    );
+
+    if (userExists) {
+      toast.error("This username is already taken. Please enter a different username.");
       return;
     }
 
@@ -55,7 +66,7 @@ const SignUp = () => {
     setUserPassword("");
     setConfirmPassword("");
     setDisplayName("");
-    setProfilePic(null);
+    setProfilePic(defaultProfilePic);
 
     history('/');
   };
@@ -114,10 +125,10 @@ const SignUp = () => {
                   className="form-control-file"
                   type="file"
                   id="profilePic"
-                  onChange={(e) => setProfilePic(e.target.files[0])}
+                  onChange={(e) => setProfilePic(URL.createObjectURL(e.target.files[0]))}
                 />
               </div>
-              {profilePic && <img className="img-fluid mt-3" src={URL.createObjectURL(profilePic)} alt="Profile Preview" style={{width: '256px', height: '256px'}}/>}
+              {profilePic && <img className="img-fluid mt-3" src={profilePic} alt="Profile Preview" style={{width: '256px', height: '256px'}}/>}
               <button className="btn btn-primary w-100 mt-3" type="submit">Register</button>
               <div className="mt-3 text-center text-primary">
                 Already have an account? <Link to="/">Log in</Link>
