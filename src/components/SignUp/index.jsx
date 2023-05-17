@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import defaultProfilePic from "../../contactsImg/chat-icon.jpg";
 
 const SignUp = () => {
-  const { dispatch } = useContext(UserContext);
+  const { state,dispatch } = useContext(UserContext);
 
   const history = useNavigate();
 
