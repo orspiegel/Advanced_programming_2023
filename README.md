@@ -68,3 +68,18 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### Notes for this assignment:
+
+```
+1. As we inferred from the instructions given in the assignment's forum, the contacts added in a given user's chat-screen and their corresponding conversations
+   should not be logged in the database upon pressing the "log-out" button at the top-left of the screen. Effectively, this means the only presistent data is the
+   signed up users (and those reset upon refreshing the webpage). If we misunderstood and those are meant to saved upon log out, this functionality can be
+    restored by going to the "handleLogOut" function in **src\components\Chat** and removing the code from the comment block.
+
+2. When running the application, a "demo user" is already signed up. You may log in as this user to get a feel for what a future iteration of the project will
+   look like, upon implementing server-side logic (This is merely cosmetic).
+
+    **Username: RayDemo**
+    **Password: NLC12345**
+```
