@@ -14,7 +14,7 @@ const SignUp = () => {
   const [userPassword, setUserPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
-  const [profilePic, setProfilePic] = useState(null);
+  const [profilePic, setProfilePic] = useState(defaultProfilePic);
 
   const isPasswordValid = (password) => {
     return (
